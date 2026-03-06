@@ -70,17 +70,37 @@ export default async function BlogPage() {
   const posts = await getPosts();
 
   return (
-    <div className="pt-24">
+    <>
       {/* Hero */}
-      <section className="py-20 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
-            The AI Boss Blog
-          </h1>
-          <p className="text-lg text-[var(--color-muted)]">
-            AI strategy from the CEO chair. No hype. No tutorials. Just what
-            leaders need to know.
-          </p>
+      <section className="bg-[var(--color-foreground)] text-white pt-24">
+        <div className="max-w-5xl mx-auto px-4 py-20 sm:py-28">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex-1">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+                The AI Boss Blog
+              </h1>
+              <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl leading-relaxed">
+                AI strategy from the CEO chair. No hype. No tutorials. Just what
+                leaders need to know.
+              </p>
+              <div className="mt-10">
+                <iframe
+                  src="https://subscribe-forms.beehiiv.com/f9e5ca6c-91f8-433d-99ef-927d06f14f2e"
+                  data-test-id="beehiiv-embed"
+                  frameBorder="0"
+                  scrolling="no"
+                  style={{ width: "100%", height: "80px", maxWidth: "480px", background: "transparent", border: "none" }}
+                />
+              </div>
+            </div>
+            <div className="flex-shrink-0">
+              <img
+                src="/kathy.png"
+                alt="Kathy Slowinski"
+                className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl object-cover shadow-2xl"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -131,6 +151,6 @@ export default async function BlogPage() {
           )}
         </div>
       </section>
-    </div>
+    </>
   );
 }
