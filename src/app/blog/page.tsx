@@ -90,13 +90,7 @@ export default async function BlogPage() {
           {posts.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (
-                
-                  key={post.link}
-                  href={post.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white rounded-xl border border-[var(--color-border)] overflow-hidden hover:shadow-lg transition-shadow"
-                >
+                <a key={post.link} href={post.link} target="_blank" rel="noopener noreferrer" className="bg-white rounded-xl border border-[var(--color-border)] overflow-hidden hover:shadow-lg transition-shadow">
                   {post.thumbnail ? (
                     <img
                       src={post.thumbnail}
