@@ -63,7 +63,7 @@ export function Header() {
         <nav className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center">
   <img
-    src="/logo.png"
+    src="/logo.svg"
     alt="The AI Boss"
     className="h-10 w-auto"
   />
