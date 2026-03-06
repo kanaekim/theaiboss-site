@@ -73,33 +73,27 @@ export default async function BlogPage() {
     <>
       {/* Hero */}
       <section className="bg-[var(--color-foreground)] text-white pt-24">
-        <div className="max-w-5xl mx-auto px-4 py-20 sm:py-28">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="flex-1">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-                The AI Boss Blog
-              </h1>
-              <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl leading-relaxed">
-                AI strategy from the CEO chair. No hype. No tutorials. Just what
-                leaders need to know.
-              </p>
-              <div className="mt-10">
-                <iframe
-                  src="https://subscribe-forms.beehiiv.com/f9e5ca6c-91f8-433d-99ef-927d06f14f2e"
-                  data-test-id="beehiiv-embed"
-                  frameBorder="0"
-                  scrolling="no"
-                  style={{ width: "100%", height: "80px", maxWidth: "480px", background: "transparent", border: "none" }}
-                />
-              </div>
-            </div>
-            <div className="flex-shrink-0">
-              <img
-                src="/kathy.png"
-                alt="Kathy Slowinski"
-                className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl object-cover shadow-2xl"
-              />
-            </div>
+        <div className="max-w-4xl mx-auto px-4 py-20 sm:py-28 text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+            The AI Boss Blog
+          </h1>
+          <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            AI strategy from the CEO chair. No hype. No tutorials. Just what
+            leaders need to know.
+          </p>
+          <div className="mt-10 max-w-md mx-auto">
+            <iframe
+              src="https://subscribe-forms.beehiiv.com/f9e5ca6c-91f8-433d-99ef-927d06f14f2e"
+              data-test-id="beehiiv-embed"
+              frameBorder="0"
+              scrolling="no"
+              style={{ width: "100%", height: "80px", background: "transparent", border: "none" }}
+            />
+          </div>
+          <div className="mt-6">
+            <Link href="/newsletter" className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-lg bg-[var(--color-cta)] text-white hover:bg-[var(--color-cta-hover)] transition-colors">
+              Subscribe to the Newsletter
+            </Link>
           </div>
         </div>
       </section>
