@@ -150,8 +150,7 @@ export default function ResultsPage() {
             The Proof Is in the P&L.
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl leading-relaxed">
-            One company. 40 people. $110M in revenue. AI transformation —
-            measured in margin, not meetings.
+           +15pts. Net margin expansion. From 60% to 75%.
           </p>
           <p className="mt-6 text-base text-gray-400 max-w-2xl leading-relaxed">
             Every metric on this page comes from Trilogy — a real company with
