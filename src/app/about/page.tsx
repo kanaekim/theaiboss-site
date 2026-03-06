@@ -13,15 +13,28 @@ export default function AboutPage() {
     <main className="bg-white text-[var(--color-foreground)]">
       {/* ── Hero ── */}
       <section className="pt-24 pb-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-8">
-           She turned a 40-person company into a $110M machine. No hiring
-            spree. No consultants. Just AI and leadership.
-          </h1>
-          <p className="text-xl sm:text-2xl text-[var(--color-muted)] leading-relaxed max-w-2xl">
-            The story of a CEO who stopped planning AI transformation and
-            started building one.
-          </p>
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Left — Text (2/3) */}
+            <div className="lg:w-2/3">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-8">
+                She turned a 40-person company into a $110M machine. No hiring spree. No consultants. Just AI and leadership.
+              </h1>
+              <p className="text-xl sm:text-2xl text-[var(--color-muted)] leading-relaxed max-w-2xl">
+                The story of a CEO who stopped planning AI transformation and
+                started building one.
+              </p>
+            </div>
+
+            {/* Right — Kathy's Photo (1/3) */}
+            <div className="lg:w-1/3">
+              <img
+                src="/kathy_about.svg"
+                alt="Kathy Slowinski"
+                className="w-full rounded-2xl object-cover shadow-2xl"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
