@@ -100,16 +100,17 @@ export default function HomePage() {
 {/* Hero Video */}
       <section className="bg-[var(--color-foreground)] py-12">
         <div className="max-w-4xl mx-auto px-4">
-          <video
-            className="w-full rounded-xl shadow-lg"
-            controls
-            preload="metadata"
-          >
-            <source src="/hero_video.mp4" type="video/mp4" />
-          </video>
+          <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
+            <iframe
+              className="absolute inset-0 w-full h-full rounded-xl shadow-lg"
+              src="https://www.youtube.com/embed/eg-Xb7U0K_8"
+              title="The AI Boss"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </div>
       </section>
-      
       
       {/* Social Proof */}
       <section className="py-16 px-4">
