@@ -57,43 +57,58 @@ const frameworks = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
+      
+     {/* Hero Section */}
       <section className="bg-[var(--color-foreground)] text-white pt-24">
         <div className="max-w-5xl mx-auto px-4 py-20 sm:py-28">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight max-w-4xl">
-            Your AI Strategy Is a PowerPoint Deck.
-            <br />
-            Mine Runs a $110M Company.
-          </h1>
-          <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl leading-relaxed">
-            Most CEOs are still debating AI. Kathy Slowinski already used it to
-            eliminate 96% of her codebase, automate 80% of support, and
-            quadruple revenue per employee.
-          </p>
-          <p className="mt-6 text-base text-gray-400 max-w-2xl leading-relaxed">
-            The difference between companies that talk about AI and companies
-            that run on it is one thing: a CEO who has actually done it. Not a
-            consultant. Not an advisor who read a white paper. A sitting CEO who
-            rebuilt a real company from the inside out — and created the
-            frameworks so you can do it too.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-lg bg-[var(--color-cta)] text-white hover:bg-[var(--color-cta-hover)] transition-colors"
-            >
-              Book a CEO Briefing
-            </Link>
-            <Link
-              href="/playbook"
-              className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-lg border border-gray-600 text-gray-200 hover:bg-gray-800 transition-colors"
-            >
-              Explore the Playbook
-            </Link>
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Left — Text */}
+            <div className="flex-1">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+                Your AI Strategy Is a PowerPoint Deck.
+                <br />
+                Mine Runs a $110M Company.
+              </h1>
+              <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl leading-relaxed">
+                Most CEOs are still debating AI. Kathy Slowinski already used it to
+                eliminate 96% of her codebase, automate 80% of support, and
+                quadruple revenue per employee.
+              </p>
+              <p className="mt-6 text-base text-gray-400 max-w-2xl leading-relaxed">
+                The difference between companies that talk about AI and companies
+                that run on it is one thing: a CEO who has actually done it. Not a
+                consultant. Not an advisor who read a white paper. A sitting CEO who
+                rebuilt a real company from the inside out — and created the
+                frameworks so you can do it too.
+              </p>
+              <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-lg bg-[var(--color-cta)] text-white hover:bg-[var(--color-cta-hover)] transition-colors"
+                >
+                  Book a CEO Briefing
+                </Link>
+                <Link
+                  href="/playbook"
+                  className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-lg border border-gray-600 text-gray-200 hover:bg-gray-800 transition-colors"
+                >
+                  Explore the Playbook
+                </Link>
+              </div>
+            </div>
+
+            {/* Right — Kathy's Photo */}
+            <div className="flex-shrink-0">
+              <img
+                src="/kathy.png"
+                alt="Kathy Slowinski"
+                className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl object-cover shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
-
+      
       {/* Metrics Bar */}
       <MetricsBar />
       
