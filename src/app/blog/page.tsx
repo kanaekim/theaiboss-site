@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BeehiivForm } from "@/components/BeehiivForm";
 
 export const metadata: Metadata = {
   title: "Blog | AI Strategy for CEOs",
@@ -81,19 +82,11 @@ export default async function BlogPage() {
             AI strategy from the CEO chair. No hype. No tutorials. Just what
             leaders need to know.
           </p>
-          <div className="mt-10 max-w-md mx-auto">
-            <iframe
-              src="https://subscribe-forms.beehiiv.com/f9e5ca6c-91f8-433d-99ef-927d06f14f2e"
-              data-test-id="beehiiv-embed"
-              frameBorder="0"
-              scrolling="no"
-              style={{ width: "100%", height: "160px", background: "transparent", border: "none" }}
-            />
-          </div>
-          <div className="mt-6">
-            <Link href="/newsletter" className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-lg bg-[var(--color-cta)] text-white hover:bg-[var(--color-cta-hover)] transition-colors">
-              Subscribe to the Newsletter
-            </Link>
+          <p className="mt-3 text-sm text-gray-400">
+            Get weekly insights delivered to your inbox.
+          </p>
+          <div className="mt-8">
+            <BeehiivForm />
           </div>
         </div>
       </section>
