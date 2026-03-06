@@ -3,7 +3,7 @@ import { SectionCTA } from "@/components/SectionCTA";
 import { TestimonialPlaceholder } from "@/components/TestimonialPlaceholder";
 
 export const metadata: Metadata = {
-  title: "About Kathy Slowinski | CEO, AI Keynote Speaker & YPO Member",
+  title: "Anna TEST About Kathy Slowinski | CEO, AI Keynote Speaker & YPO Member",
   description:
     "Kathy Slowinski is the CEO behind The AI Boss, a leader who has driven AI transformation in real companies, and a trusted AI advisor to executive teams worldwide.",
 };
