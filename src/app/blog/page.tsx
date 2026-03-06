@@ -87,7 +87,7 @@ export default async function BlogPage() {
               data-test-id="beehiiv-embed"
               frameBorder="0"
               scrolling="no"
-              style={{ width: "100%", height: "80px", background: "transparent", border: "none" }}
+              style={{ width: "100%", height: "160px", background: "transparent", border: "none" }}
             />
           </div>
           <div className="mt-6">
