@@ -15,7 +15,7 @@ export default function AboutPage() {
       <section className="pt-24 pb-20 px-6">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-8">
-            Anna Test She turned a 40-person company into a $110M machine. No hiring
+           She turned a 40-person company into a $110M machine. No hiring
             spree. No consultants. Just AI and leadership.
           </h1>
           <p className="text-xl sm:text-2xl text-[var(--color-muted)] leading-relaxed max-w-2xl">
@@ -229,7 +229,7 @@ function TimelineEntry({
 }) {
   return (
     <div className="relative">
-      <div className="absolute -left-[calc(0.5rem+1px)] top-1.5 h-3 w-3 rounded-full bg-[var(--color-cta)] border-2 border-white" />
+<div className="absolute -left-[calc(0.375rem+1px)] top-1.5 h-3 w-3 rounded-full bg-[var(--color-cta)] border-2 border-white" />
       <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-cta)] mb-1">
         {date}
       </p>
