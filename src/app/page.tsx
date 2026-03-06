@@ -100,7 +100,7 @@ export default function HomePage() {
             {/* Right — Kathy's Photo */}
             <div className="flex-shrink-0">
               <img
-                src="/kathy.png"
+                src="/kathy_about.svg"
                 alt="Kathy Slowinski"
                 className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl object-cover shadow-2xl"
               />
