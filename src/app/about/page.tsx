@@ -29,7 +29,7 @@ export default function AboutPage() {
             {/* Right — Kathy's Photo (1/3) */}
             <div className="lg:w-1/3">
               <img
-                src="/kathy_about.svg"
+                src="/kathy.png"
                 alt="Kathy Slowinski"
               />
             </div>
