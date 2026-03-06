@@ -3,13 +3,13 @@
 @theme inline {
   --color-background: #ffffff;
   --color-foreground: #0a0a0a;
-  --color-accent: #1a1a2e;
-  --color-accent-light: #16213e;
-  --color-cta: #e94560;
-  --color-cta-hover: #c73e54;
-  --color-muted: #6b7280;
-  --color-border: #e5e7eb;
-  --color-surface: #f9fafb;
+  --color-accent: #7f4ec4;
+  --color-accent-light: #b995ec;
+  --color-cta: #7f4ec4;;
+  --color-cta-hover: #b995ec;
+  --color-muted: #58595b;
+  --color-border: #d2bef1;
+  --color-surface: #f6f2fc;
   --font-sans: var(--font-inter);
 }
 
