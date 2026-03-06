@@ -38,7 +38,6 @@ async function getPosts(): Promise<BlogPost[]> {
 
       const pubDate = item.match(/<pubDate>(.*?)<\/pubDate>/)?.[1] ?? "";
 
-      // Try multiple image sources: enclosure, media:content, or first img in description
       const thumbnail =
         item.match(/<enclosure[^>]+url="([^"]+)"/)?.[1] ??
         item.match(/<media:content[^>]+url="([^"]+)"/)?.[1] ??
