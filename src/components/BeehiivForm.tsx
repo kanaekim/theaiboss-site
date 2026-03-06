@@ -5,27 +5,33 @@ import { useState, FormEvent } from "react";
 export function BeehiivForm() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!email) return;
+    if (!email || loading) return;
 
-    const form = document.createElement("form");
-    form.method = "POST";
-    form.action = "https://subscribe-forms.beehiiv.com/f9e5ca6c-91f8-433d-99ef-927d06f14f2e";
-    form.target = "beehiiv-hidden";
+    setLoading(true);
+    setError("");
 
-    const input = document.createElement("input");
-    input.type = "hidden";
-    input.name = "email";
-    input.value = email;
-    form.appendChild(input);
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
 
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);
-
-    setSubmitted(true);
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
@@ -40,8 +46,7 @@ export function BeehiivForm() {
   }
 
   return (
-    <>
-      <iframe name="beehiiv-hidden" style={{ display: "none" }} />
+    <div>
       <div className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
         <input
           type="email"
@@ -53,11 +58,15 @@ export function BeehiivForm() {
         />
         <button
           onClick={handleSubmit}
-          className="px-6 py-3.5 rounded-lg bg-[var(--color-cta)] text-white text-sm font-medium hover:bg-[var(--color-cta-hover)] transition-colors whitespace-nowrap"
+          disabled={loading}
+          className="px-6 py-3.5 rounded-lg bg-[var(--color-cta)] text-white text-sm font-medium hover:bg-[var(--color-cta-hover)] transition-colors whitespace-nowrap disabled:opacity-50"
         >
-          Subscribe
+          {loading ? "Subscribing..." : "Subscribe"}
         </button>
       </div>
-    </>
+      {error && (
+        <p className="text-red-400 text-sm mt-3 text-center">{error}</p>
+      )}
+    </div>
   );
 }
