@@ -390,22 +390,21 @@ export default function ResultsPage() {
             From the Inside Out.
           </h2>
           <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-[var(--color-border)]" />
+           {/* Vertical line — keep at left-6 */}
+<div className="absolute left-6 top-0 bottom-0 w-px bg-[var(--color-border)]" />
 
-            <div className="space-y-8">
-              {timeline.map((item, i) => (
-                <div key={i} className="relative flex items-start gap-6 pl-12 sm:pl-16">
-                  {/* Marker */}
-                  <div className="absolute left-2 sm:left-4 w-5 h-5 rounded-full bg-[var(--color-foreground)] border-4 border-[var(--color-surface)]" />
-                  <div>
-                    <div className="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)] mb-1">
-                      {item.date}
-                    </div>
-                    <div className="text-base font-bold">{item.event}</div>
-                  </div>
-                </div>
-              ))}
+{timeline.map((item, i) => (
+  <div key={i} className="relative flex items-start gap-6 pl-16">
+    {/* Dot — center it on the line (left-6 = 1.5rem, minus half of w-4 = 0.5rem → left-[1.25rem]) */}
+    <div className="absolute left-[1.125rem] top-1 w-3.5 h-3.5 rounded-full bg-[var(--color-foreground)] border-4 border-[var(--color-surface)]" />
+    <div>
+      <div className="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)] mb-1">
+        {item.date}
+      </div>
+      <div className="text-base font-bold">{item.event}</div>
+    </div>
+  </div>
+))}
             </div>
           </div>
 
