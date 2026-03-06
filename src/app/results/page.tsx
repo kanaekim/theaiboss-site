@@ -406,7 +406,6 @@ export default function ResultsPage() {
   </div>
 ))}
             </div>
-          </div>
 
           <p className="text-center text-[var(--color-muted)] mt-12 text-sm">
             Total consultants hired: zero. Total committees formed: zero.
