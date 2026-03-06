@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "The AI Boss Newsletter | Weekly AI Strategy for CEOs",
   description:
-    "One AI insight per week that is worth your CEO attention. No hype. No tutorials. Just strategy. Subscribe to The AI Leadership Briefing.",
+    "Anna TEST One AI insight per week that is worth your CEO attention. No hype. No tutorials. Just strategy. Subscribe to The AI Leadership Briefing.",
 };
 
 export default function NewsletterPage() {
