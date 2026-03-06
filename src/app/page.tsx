@@ -96,7 +96,21 @@ export default function HomePage() {
 
       {/* Metrics Bar */}
       <MetricsBar />
-
+      
+{/* Hero Video */}
+      <section className="bg-[var(--color-foreground)] py-12">
+        <div className="max-w-4xl mx-auto px-4">
+          <video
+            className="w-full rounded-xl shadow-lg"
+            controls
+            preload="metadata"
+          >
+            <source src="/hero_video.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+      
+      
       {/* Social Proof */}
       <section className="py-16 px-4">
         <div className="max-w-5xl mx-auto">
