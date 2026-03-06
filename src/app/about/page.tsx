@@ -31,7 +31,6 @@ export default function AboutPage() {
               <img
                 src="/kathy_about.svg"
                 alt="Kathy Slowinski"
-                className="w-full rounded-2xl object-cover shadow-2xl"
               />
             </div>
           </div>
