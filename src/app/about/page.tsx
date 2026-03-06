@@ -241,7 +241,7 @@ function TimelineEntry({
 }) {
   return (
     <div className="relative">
-<div className="absolute -left-[calc(0.375rem+1px)] top-1.5 h-3 w-3 rounded-full bg-[var(--color-cta)] border-2 border-white" />
+<div className="absolute -left-[calc(2rem+0.375rem+1px)] top-1.5 h-3 w-3 rounded-full bg-[var(--color-cta)] border-2 border-white" />
       <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-cta)] mb-1">
         {date}
       </p>
