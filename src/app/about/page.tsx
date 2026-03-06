@@ -15,7 +15,7 @@ export default function AboutPage() {
       <section className="pt-24 pb-20 px-6">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-8">
-            She turned a 40-person company into a $110M machine. No hiring
+            Anna Test She turned a 40-person company into a $110M machine. No hiring
             spree. No consultants. Just AI and leadership.
           </h1>
           <p className="text-xl sm:text-2xl text-[var(--color-muted)] leading-relaxed max-w-2xl">
