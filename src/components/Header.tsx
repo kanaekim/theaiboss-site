@@ -61,9 +61,13 @@ export function Header() {
 
         {/* Main nav */}
         <nav className="flex items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold tracking-tight">
-            The AI Boss
-          </Link>
+          <Link href="/" className="flex items-center">
+  <img
+    src="/logo.png"
+    alt="The AI Boss"
+    className="h-10 w-auto"
+  />
+</Link>
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-8">
