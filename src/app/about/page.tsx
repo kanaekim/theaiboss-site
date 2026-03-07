@@ -193,25 +193,41 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold mb-10">Credentials</h2>
           <ul className="space-y-4 text-lg text-[var(--color-muted)]">
-            <li className="flex items-start gap-3">
+           <li className="flex items-start gap-3">
               <span className="mt-2 block h-2 w-2 shrink-0 rounded-full bg-[var(--color-cta)]" />
-              CEO, Trilogy (CopperTree, Jigsaw, Kayako)
+              CEO, Trilogy (CopperTree, Jigsaw, Aurea Portfolios)
             </li>
             <li className="flex items-start gap-3">
               <span className="mt-2 block h-2 w-2 shrink-0 rounded-full bg-[var(--color-cta)]" />
-              YPO Member, Park City Chapter, YPO AI Champion
+              Former CPO and CRO, CircleUp (acquired by Brightflow.ai)
             </li>
             <li className="flex items-start gap-3">
               <span className="mt-2 block h-2 w-2 shrink-0 rounded-full bg-[var(--color-cta)]" />
-              Former CPRO, CircleUp (acquired by Brightflow.ai)
+              SVP Product, Design &amp; Customer Success, Neighborhoods.com
             </li>
             <li className="flex items-start gap-3">
               <span className="mt-2 block h-2 w-2 shrink-0 rounded-full bg-[var(--color-cta)]" />
-              Leadership at Neighborhoods.com, Numerator, IgniteTech
+              SVP Product, Numerator (acquired by Kantar)
             </li>
             <li className="flex items-start gap-3">
               <span className="mt-2 block h-2 w-2 shrink-0 rounded-full bg-[var(--color-cta)]" />
-              Technical roots: server hardware, Microsoft MVP, early AWS
+              SVP Product, IgniteTech
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-2 block h-2 w-2 shrink-0 rounded-full bg-[var(--color-cta)]" />
+              VP Product and Marketing, SPINS (acquired by Warburg Pincus)
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-2 block h-2 w-2 shrink-0 rounded-full bg-[var(--color-cta)]" />
+              Sr. Director Product Design, Experian
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-2 block h-2 w-2 shrink-0 rounded-full bg-[var(--color-cta)]" />
+              YPO Member, Park City Chapter
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-2 block h-2 w-2 shrink-0 rounded-full bg-[var(--color-cta)]" />
+              YPO AI Champion
             </li>
           </ul>
         </div>
