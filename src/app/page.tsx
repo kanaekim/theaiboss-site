@@ -139,7 +139,22 @@ export default function HomePage() {
             </div>
           </div>
           <div className="max-w-2xl mx-auto">
-            <TestimonialPlaceholder context="CEO peer or event organizer" />
+            <div className="bg-white border border-[var(--color-border)] rounded-xl p-8 sm:p-10">
+              <div className="flex items-center gap-4 mb-6">
+                <img
+                  src="/job_tucker.png"
+                  alt="Job Tucker"
+                  className="w-14 h-14 rounded-full object-cover"
+                />
+                <div>
+                  <div className="font-bold">Job Tucker</div>
+                  <div className="text-sm text-[var(--color-muted)]">Director @ Third Comma</div>
+                </div>
+              </div>
+              <p className="text-[var(--color-muted)] leading-relaxed italic">
+                &ldquo;Kathy has singlehandedly pushed AI to the forefront of our YPO chapter and made it accessible, practical, and incredibly valuable for our members. Her depth of knowledge and relentless curiosity make her a powerful guide for leaders trying to understand how AI can create real advantage in their businesses. I&rsquo;ve personally gained tremendous insight from her and consistently walk away from our conversations seeing the future more clearly.&rdquo;
+              </p>
+            </div>
           </div>
         </div>
       </section>
