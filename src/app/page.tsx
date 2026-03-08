@@ -59,8 +59,8 @@ export default function HomePage() {
     <>
 {/* Hero Section */}
       <section className="bg-[var(--color-foreground)] text-white pt-24">
-        <div className="max-w-5xl mx-auto px-4 py-20 sm:py-28">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="max-w-6xl mx-auto px-4 py-20 sm:py-28">
+          <div className="flex flex-col lg:flex-row items-start gap-12">
             {/* Left — Text (2/3) */}
             <div className="lg:w-2/3">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
@@ -73,37 +73,39 @@ export default function HomePage() {
                 eliminate 96% of her codebase, automate 80% of support, and
                 quadruple revenue per employee.
               </p>
-              <p className="mt-6 text-base text-gray-400 leading-relaxed">
-                The difference between companies that talk about AI and companies
-                that run on it is one thing: a CEO who has actually done it. Not a
-                consultant. Not an advisor who read a white paper. A sitting CEO who
-                rebuilt a real company from the inside out — and created the
-                frameworks so you can do it too.
-              </p>
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-lg bg-[var(--color-cta)] text-white hover:bg-[var(--color-cta-hover)] transition-colors"
-                >
-                  Book a CEO Briefing
-                </Link>
-                <Link
-                  href="/playbook"
-                  className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-lg border border-gray-600 text-gray-200 hover:bg-gray-800 transition-colors"
-                >
-                  Explore the Playbook
-                </Link>
-              </div>
             </div>
 
             {/* Right — Kathy's Photo (1/3) */}
-            <div className="lg:w-1/3">
+            <div className="lg:w-1/3 lg:mt-4">
               <img
-                src="/kathy-hero (1).jpg"
+                src="/kathy-hero.jpg"
                 alt="Kathy Slowinski"
-                className="w-full rounded-2xl object-cover shadow-2xl"
+                className="w-full object-cover shadow-2xl"
               />
             </div>
+          </div>
+
+          {/* Full-width paragraph below */}
+          <p className="mt-10 text-base text-gray-400 leading-relaxed max-w-full">
+            The difference between companies that talk about AI and companies
+            that run on it is one thing: a CEO who has actually done it. Not a
+            consultant. Not an advisor who read a white paper. A sitting CEO who
+            rebuilt a real company from the inside out — and created the
+            frameworks so you can do it too.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-lg bg-[var(--color-cta)] text-white hover:bg-[var(--color-cta-hover)] transition-colors"
+            >
+              Book a CEO Briefing
+            </Link>
+            <Link
+              href="/playbook"
+              className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-lg border border-gray-600 text-gray-200 hover:bg-gray-800 transition-colors"
+            >
+              Explore the Playbook
+            </Link>
           </div>
         </div>
       </section>
