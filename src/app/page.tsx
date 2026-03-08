@@ -62,7 +62,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 py-20 sm:py-28">
           <div className="flex flex-col lg:flex-row items-start gap-12">
             {/* Left — Text (2/2) */}
-            <div className="lg:w-1/3">
+            <div className="lg:w-2/3">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
                 Your AI Strategy Is a PowerPoint Deck.
                 <br />
@@ -76,7 +76,7 @@ export default function HomePage() {
             </div>
 
             {/* Right — Kathy's Photo (1/2) */}
-            <div className="lg:w-1/2 lg:mt-4">
+            <div className="lg:w-1/3 lg:mt-4">
               <img
                 src="/kathy_hero.png"
                 alt="Kathy Slowinski"
