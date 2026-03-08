@@ -86,32 +86,6 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* -- Featured Resource -- */}
-      <section className="pb-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="p-8 sm:p-12 rounded-2xl border-2 border-[var(--color-cta)] bg-[var(--color-surface)]">
-            <div className="flex items-start gap-3 mb-4">
-              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-[var(--color-cta)] text-white rounded-full">
-                Interactive Quiz
-              </span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-              AI Readiness Assessment
-            </h2>
-            <p className="text-lg text-[var(--color-muted)] leading-relaxed mb-8 max-w-xl">
-              10 questions. 3 minutes. Immediate results. Find out where your
-              company stands on AI readiness and get a personalized action plan.
-            </p>
-            <Link
-              href="#"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[var(--color-cta)] text-white font-medium rounded-lg hover:bg-[var(--color-cta-hover)] transition-colors"
-            >
-              Take the Assessment
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* -- Resource Grid -- */}
       <section className="py-20 px-6 bg-[var(--color-surface)]">
         <div className="max-w-4xl mx-auto">
