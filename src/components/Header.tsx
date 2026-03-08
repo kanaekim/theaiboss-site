@@ -44,20 +44,6 @@ export function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Utility nav */}
-        <div className="hidden lg:flex justify-end gap-6 py-1 text-xs text-[var(--color-muted)]">
-          <Link href="/newsletter" className="hover:text-[var(--color-foreground)]">
-            Newsletter
-          </Link>
-          <a
-            href="https://linkedin.com/in/kathyslowinski"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[var(--color-foreground)]"
-          >
-            LinkedIn
-          </a>
-        </div>
 
         {/* Main nav */}
         <nav className="flex items-center justify-between h-16">
