@@ -99,7 +99,7 @@ export default function HomePage() {
             {/* Right — Kathy's Photo (1/3) */}
             <div className="lg:w-1/3">
               <img
-                src="/kathy-hero.jpg"
+                src="/kathy-hero (1).jpg"
                 alt="Kathy Slowinski"
                 className="w-full rounded-2xl object-cover shadow-2xl"
               />
