@@ -57,24 +57,23 @@ const frameworks = [
 export default function HomePage() {
   return (
     <>
-      
-     {/* Hero Section */}
+{/* Hero Section */}
       <section className="bg-[var(--color-foreground)] text-white pt-24">
         <div className="max-w-5xl mx-auto px-4 py-20 sm:py-28">
           <div className="flex flex-col lg:flex-row items-center gap-12">
-            {/* Left — Text */}
-            <div className="flex-1">
+            {/* Left — Text (2/3) */}
+            <div className="lg:w-2/3">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
                 Your AI Strategy Is a PowerPoint Deck.
                 <br />
                 Mine Runs a $110M Company.
               </h1>
-              <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl leading-relaxed">
+              <p className="mt-6 text-lg sm:text-xl text-gray-300 leading-relaxed">
                 Most CEOs are still debating AI. Kathy Slowinski already used it to
                 eliminate 96% of her codebase, automate 80% of support, and
                 quadruple revenue per employee.
               </p>
-              <p className="mt-6 text-base text-gray-400 max-w-2xl leading-relaxed">
+              <p className="mt-6 text-base text-gray-400 leading-relaxed">
                 The difference between companies that talk about AI and companies
                 that run on it is one thing: a CEO who has actually done it. Not a
                 consultant. Not an advisor who read a white paper. A sitting CEO who
@@ -97,12 +96,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right — Kathy's Photo */}
-            <div className="flex-shrink-0">
+            {/* Right — Kathy's Photo (1/3) */}
+            <div className="lg:w-1/3">
               <img
-                src="/kathy_about.svg"
+                src="/kathy-hero.jpg"
                 alt="Kathy Slowinski"
-                className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl object-cover shadow-2xl"
+                className="w-full rounded-2xl object-cover shadow-2xl"
               />
             </div>
           </div>
