@@ -126,8 +126,8 @@ export default function AboutPage() {
       </section>
 
       {/* ── Testimonial Placeholder ── */}
-      <div className="bg-white border border-[var(--color-border)] rounded-xl p-8 sm:p-10">
-            <div className="flex items-center gap-4 mb-6">
+     <div className="bg-white border border-[var(--color-border)] rounded-xl p-8 sm:p-10 text-center">
+            <div className="flex flex-col items-center gap-2 mb-6">
               <img
                 src="/Sarah Lehman.jpeg"
                 alt="Sarah Lehman"
