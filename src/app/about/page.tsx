@@ -126,11 +126,28 @@ export default function AboutPage() {
       </section>
 
       {/* ── Testimonial Placeholder ── */}
-      <section className="py-10 px-6">
-        <div className="max-w-3xl mx-auto">
-          <TestimonialPlaceholder context="CEO who attended a keynote" />
-        </div>
-      </section>
+      <div className="bg-white border border-[var(--color-border)] rounded-xl p-8 sm:p-10">
+            <div className="flex items-center gap-4 mb-6">
+              <img
+                src="/Sarah Lehman.jpeg"
+                alt="Sarah Lehman"
+                className="w-14 h-14 rounded-full object-cover"
+              />
+              <div>
+                <div className="font-bold">Sarah Lehman</div>
+                <div className="text-sm text-[var(--color-muted)]">CEO @ Zartico</div>
+              </div>
+            </div>
+            <div className="text-[var(--color-muted)] leading-relaxed italic space-y-4">
+              <p>&ldquo;To my fellow CEOs: If AI is still something your team is &lsquo;exploring,&rsquo; you are already behind.</p>
+              <p>That is why working with Kathy Slowinski has been such a game changer for us at Zartico. Kathy does not approach AI as a feature or side experiment. She treats it as an operating model.</p>
+              <p>She has built, scaled, and stabilized complex companies using AI-first principles. She knows where it works, where it breaks, and how to move organizations beyond endless pilots into real operational change.</p>
+              <p>When she joined our annual all-company meeting, she challenged the entire organization to stop studying AI and start using it. That challenge led directly to FriA.I.Days at Zartico &mdash; inspired by her Wed.AI Labs &mdash; where we now run demos, experiments, and hackathons to rethink how work actually gets done.</p>
+              <p>That is exactly why she is The AI Boss.</p>
+              <p>Her message is simple: the CEO has to lead. If leaders are not actively using AI tools to rethink how work gets done across product, marketing, support, and operations, the company will never move fast enough.</p>
+              <p>If you are a CEO wondering where to start, the answer is simple. Start using the tools yourself. Your organization will follow.&rdquo;</p>
+            </div>
+          </div>
 
       {/* ── Why Not a Consultancy ── */}
       <section className="py-20 px-6 bg-[var(--color-surface)]">
