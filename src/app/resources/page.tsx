@@ -51,7 +51,8 @@ const RESOURCES = [
       "A 12-to-18-slide structure for presenting AI strategy and results to your board of directors.",
     href: "#",
   },
-]
+];
+
 export default function ResourcesPage() {
   return (
     <main className="bg-white text-[var(--color-foreground)]">
