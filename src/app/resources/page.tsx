@@ -51,23 +51,6 @@ const RESOURCES = [
       "A 12-to-18-slide structure for presenting AI strategy and results to your board of directors.",
     href: "#",
   },
-  {
-    title: "Speaker Kit",
-    format: "PDF",
-    description:
-      "Bio, headshot, and keynote descriptions for event organizers.",
-    href: "#",
-    free: true,
-  },
-  {
-    title: "Workshop Menu",
-    format: "PDF",
-    description:
-      "Overview of all three workshop formats: 2-hour, half-day, and full-day.",
-    href: "#",
-    free: true,
-  },
-];
 
 export default function ResourcesPage() {
   return (
