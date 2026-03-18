@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "The AI Boss Newsletter | Weekly AI Strategy for CEOs",
+  title: "The AI Boss Newsletter | AI Strategy for CEOs",
   description:
-    "One AI insight per week that is worth your CEO attention. No hype. No tutorials. Just strategy. Subscribe to The AI Leadership Briefing.",
+    "AI insight that is worth your CEO attention. No hype. No tutorials. Just strategy. Subscribe to The AI Leadership Briefing.",
 };
 
 export default function NewsletterPage() {
@@ -16,12 +16,12 @@ export default function NewsletterPage() {
             The AI Leadership Briefing
           </h1>
           <p className="text-xl sm:text-2xl text-[var(--color-muted)] leading-relaxed max-w-2xl mx-auto mb-6">
-            One AI insight per week that is worth your CEO attention. No hype.
+            AI insight that is worth your CEO attention. No hype.
             No tutorials. Just strategy.
           </p>
           <p className="text-lg text-[var(--color-muted)] leading-relaxed max-w-xl mx-auto">
-            Every Tuesday morning, one email. One strategic AI insight. One
-            implication for your business. One action you can take that week.
+           One email. One strategic AI insight. 
+            One implication for your business. One action you can take that week.
           </p>
         </div>
       </section>
@@ -45,7 +45,7 @@ export default function NewsletterPage() {
             </button>
           </form>
           <p className="text-sm text-[var(--color-muted)] text-center mt-3">
-            Every Tuesday. Unsubscribe anytime. No spam, ever.
+          Unsubscribe anytime. No spam, ever.
           </p>
         </div>
       </section>
@@ -132,7 +132,7 @@ export default function NewsletterPage() {
       <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            One Email. Every Tuesday.
+            One Email. One strategic AI insight.
           </h2>
           <p className="text-xl text-[var(--color-muted)] leading-relaxed mb-10">
             The AI insight your competitors are already reading.
@@ -153,7 +153,7 @@ export default function NewsletterPage() {
             </button>
           </form>
           <p className="text-sm text-[var(--color-muted)] mt-3">
-            Every Tuesday. Unsubscribe anytime. No spam, ever.
+            Unsubscribe anytime. No spam, ever.
           </p>
         </div>
       </section>
