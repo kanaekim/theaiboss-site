@@ -113,6 +113,9 @@ export function Header() {
               Speaking
             </Link>
           </div>
+          <Link href="/resources" className="block text-sm font-medium py-2" onClick={() => setMobileOpen(false)}>
+                Resources
+              </Link>
 
           <div className="hidden lg:block">
             <Link
@@ -184,6 +187,9 @@ export function Header() {
               </Link>
               <Link href="/newsletter" className="block text-sm font-medium py-2" onClick={() => setMobileOpen(false)}>
                 Newsletter
+              </Link>
+              <Link href="/resources" className="block text-sm font-medium py-2" onClick={() => setMobileOpen(false)}>
+                Resources
               </Link>
             </div>
 
