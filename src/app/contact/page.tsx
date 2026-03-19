@@ -10,6 +10,44 @@ export default function ContactPage() {
   const [inquiryType, setInquiryType] = useState<
     "advisory" | "speaking" | "workshop"
   >("advisory");
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("submitting");
+    setErrorMsg("");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const payload: Record<string, string> = { inquiryType };
+    data.forEach((value, key) => {
+      if (typeof value === "string" && value.trim()) {
+        payload[key] = value.trim();
+      }
+    });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+
+      setStatus("success");
+      form.reset();
+    } catch {
+      setStatus("error");
+      setErrorMsg(
+        "Something went wrong. Please try again or email us directly."
+      );
+    }
+  }
 
   return (
     <>
@@ -33,169 +71,216 @@ export default function ContactPage() {
         <section className="py-20 px-6 bg-[var(--color-surface)]">
           <div className="max-w-5xl mx-auto grid lg:grid-cols-[2fr_1fr] gap-16">
             {/* -- Form -- */}
-            <form action="#" className="space-y-8">
-              {/* Inquiry Type Tabs */}
-              <div>
-                <label className="block text-sm font-semibold mb-3">
-                  Inquiry Type
-                </label>
-                <div className="flex gap-2">
-                  {(
-                    [
-                      ["advisory", "Advisory"],
-                      ["speaking", "Speaking"],
-                      ["workshop", "Workshop"],
-                    ] as const
-                  ).map(([value, label]) => (
-                    <button
-                      key={value}
-                      type="button"
-                      onClick={() => setInquiryType(value)}
-                      className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                        inquiryType === value
-                          ? "bg-[var(--color-foreground)] text-white"
-                          : "bg-white border border-[var(--color-border)] text-[var(--color-muted)] hover:border-[var(--color-foreground)]"
-                      }`}
-                    >
-                      {label}
-                    </button>
-                  ))}
+            {status === "success" ? (
+              <div className="flex flex-col items-center justify-center text-center py-16 space-y-4">
+                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-2">
+                  <svg
+                    className="w-8 h-8 text-green-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
                 </div>
+                <h2 className="text-2xl font-bold">
+                  Thank you for reaching out
+                </h2>
+                <p className="text-[var(--color-muted)] max-w-md">
+                  We will review your inquiry and get back to you within 2
+                  business days. If there is a fit, we will schedule a
+                  30-minute call.
+                </p>
+                <button
+                  onClick={() => setStatus("idle")}
+                  className="mt-4 px-6 py-3 text-sm font-medium border border-[var(--color-border)] rounded-lg hover:border-[var(--color-foreground)] transition-colors"
+                >
+                  Submit another inquiry
+                </button>
               </div>
-
-              {/* Universal Fields */}
-              <div className="grid sm:grid-cols-2 gap-6">
-                <FormField label="Full Name" name="name" required />
-                <FormField
-                  label="Business Email"
-                  name="email"
-                  type="email"
-                  required
-                />
-                <FormField label="Company Name" name="company" required />
-                <FormField label="Role / Title" name="role" required />
-              </div>
-
-              {/* Advisory Fields */}
-              {inquiryType === "advisory" && (
-                <div className="space-y-6">
-                  <FormSelect
-                    label="Annual Revenue"
-                    name="revenue"
-                    options={[
-                      "$50M - $100M",
-                      "$100M - $250M",
-                      "$250M - $500M",
-                      "$500M+",
-                    ]}
-                  />
-                  <FormSelect
-                    label="What Is Driving Your Interest?"
-                    name="driver"
-                    options={[
-                      "Board pressure",
-                      "Competitive threat",
-                      "Revenue opportunity",
-                      "Cost reduction",
-                      "Exploring",
-                    ]}
-                  />
-                  <FormTextarea
-                    label="Anything else you would like us to know? (Optional)"
-                    name="notes"
-                  />
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-8">
+                {/* Inquiry Type Tabs */}
+                <div>
+                  <label className="block text-sm font-semibold mb-3">
+                    Inquiry Type
+                  </label>
+                  <div className="flex gap-2">
+                    {(
+                      [
+                        ["advisory", "Advisory"],
+                        ["speaking", "Speaking"],
+                        ["workshop", "Workshop"],
+                      ] as const
+                    ).map(([value, label]) => (
+                      <button
+                        key={value}
+                        type="button"
+                        onClick={() => setInquiryType(value)}
+                        className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                          inquiryType === value
+                            ? "bg-[var(--color-foreground)] text-white"
+                            : "bg-white border border-[var(--color-border)] text-[var(--color-muted)] hover:border-[var(--color-foreground)]"
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              )}
 
-              {/* Speaking Fields */}
-              {inquiryType === "speaking" && (
-                <div className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <FormField label="Event Name" name="event_name" required />
-                    <FormField
-                      label="Event Date"
-                      name="event_date"
-                      type="date"
-                      required
-                    />
-                    <FormField label="Location" name="location" required />
+                {/* Universal Fields */}
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <FormField label="Full Name" name="name" required />
+                  <FormField
+                    label="Business Email"
+                    name="email"
+                    type="email"
+                    required
+                  />
+                  <FormField label="Company Name" name="company" required />
+                  <FormField label="Role / Title" name="role" required />
+                </div>
+
+                {/* Advisory Fields */}
+                {inquiryType === "advisory" && (
+                  <div className="space-y-6">
                     <FormSelect
-                      label="Audience Size"
-                      name="audience_size"
+                      label="Annual Revenue"
+                      name="revenue"
                       options={[
-                        "Under 100",
-                        "100 - 500",
-                        "500 - 1,000",
-                        "1,000+",
+                        "Under $50M",
+                        "$50M - $100M",
+                        "$100M - $250M",
+                        "$250M - $500M",
+                        "$500M+",
                       ]}
                     />
                     <FormSelect
-                      label="Preferred Format"
-                      name="format"
+                      label="What Is Driving Your Interest?"
+                      name="driver"
                       options={[
-                        "Keynote",
-                        "Fireside Chat",
-                        "Panel",
-                        "Half-Day",
+                        "Board pressure",
+                        "Competitive threat",
+                        "Revenue opportunity",
+                        "Cost reduction",
+                        "Exploring",
                       ]}
                     />
-                    <FormSelect
-                      label="Budget Range (Optional)"
-                      name="budget"
-                      options={[
-                        "Under $15,000",
-                        "$15,000 - $25,000",
-                        "$25,000 - $50,000",
-                        "$50,000+",
-                      ]}
+                    <FormTextarea
+                      label="Anything else you would like us to know? (Optional)"
+                      name="notes"
                     />
                   </div>
-                  <FormTextarea
-                    label="Anything else you would like us to know? (Optional)"
-                    name="notes"
-                  />
-                </div>
-              )}
+                )}
 
-              {/* Workshop Fields */}
-              {inquiryType === "workshop" && (
-                <div className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <FormSelect
-                      label="Format"
-                      name="workshop_format"
-                      options={["Full-Day", "Half-Day", "2-Hour"]}
-                    />
-                    <FormField
-                      label="Number of Participants"
-                      name="participants"
-                      type="number"
-                    />
-                    <FormField
-                      label="Preferred Date Range"
-                      name="date_range"
-                    />
-                    <FormSelect
-                      label="In-Person or Virtual"
-                      name="delivery"
-                      options={["In-Person", "Virtual", "Open to Either"]}
+                {/* Speaking Fields */}
+                {inquiryType === "speaking" && (
+                  <div className="space-y-6">
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      <FormField
+                        label="Event Name"
+                        name="event_name"
+                        required
+                      />
+                      <FormField
+                        label="Event Date"
+                        name="event_date"
+                        type="date"
+                        required
+                      />
+                      <FormField label="Location" name="location" required />
+                      <FormSelect
+                        label="Audience Size"
+                        name="audience_size"
+                        options={[
+                          "Under 100",
+                          "100 - 500",
+                          "500 - 1,000",
+                          "1,000+",
+                        ]}
+                      />
+                      <FormSelect
+                        label="Preferred Format"
+                        name="format"
+                        options={[
+                          "Keynote",
+                          "Fireside Chat",
+                          "Panel",
+                          "Half-Day",
+                        ]}
+                      />
+                      <FormSelect
+                        label="Budget Range (Optional)"
+                        name="budget"
+                        options={[
+                          "Under $15,000",
+                          "$15,000 - $25,000",
+                          "$25,000 - $50,000",
+                          "$50,000+",
+                        ]}
+                      />
+                    </div>
+                    <FormTextarea
+                      label="Anything else you would like us to know? (Optional)"
+                      name="notes"
                     />
                   </div>
-                  <FormTextarea
-                    label="Anything else you would like us to know? (Optional)"
-                    name="notes"
-                  />
-                </div>
-              )}
+                )}
 
-              {/* Submit */}
-              <button
-                type="submit"
-                className="w-full sm:w-auto px-10 py-4 bg-[var(--color-cta)] text-white font-medium rounded-lg hover:bg-[var(--color-cta-hover)] transition-colors"
-              >
-                Start the Conversation
-              </button>
-            </form>
+                {/* Workshop Fields */}
+                {inquiryType === "workshop" && (
+                  <div className="space-y-6">
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      <FormSelect
+                        label="Format"
+                        name="workshop_format"
+                        options={["Full-Day", "Half-Day", "2-Hour"]}
+                      />
+                      <FormField
+                        label="Number of Participants"
+                        name="participants"
+                        type="number"
+                      />
+                      <FormField
+                        label="Preferred Date Range"
+                        name="date_range"
+                      />
+                      <FormSelect
+                        label="In-Person or Virtual"
+                        name="delivery"
+                        options={["In-Person", "Virtual", "Open to Either"]}
+                      />
+                    </div>
+                    <FormTextarea
+                      label="Anything else you would like us to know? (Optional)"
+                      name="notes"
+                    />
+                  </div>
+                )}
+
+                {/* Error Message */}
+                {status === "error" && (
+                  <p className="text-red-600 text-sm">{errorMsg}</p>
+                )}
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="w-full sm:w-auto px-10 py-4 bg-[var(--color-cta)] text-white font-medium rounded-lg hover:bg-[var(--color-cta-hover)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {status === "submitting"
+                    ? "Submitting…"
+                    : "Start the Conversation"}
+                </button>
+              </form>
+            )}
 
             {/* -- What Happens Next -- */}
             <div className="space-y-10">
