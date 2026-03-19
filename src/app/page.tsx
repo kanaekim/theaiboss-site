@@ -73,7 +73,8 @@ export default function HomePage() {
                 and running pilots that never ship. Kathy Slowinski spent those same three years actually doing it. 
                 She increased revenue per head by 4x, moved margins 15 points from 60% to 75%, and built an operating model 
                 that runs a $100M+ SaaS portfolio with a fraction of the headcount her competitors need. 
-                They are still talking about what is possible. She already proved it.
+                They are still talking about what is possible. 
+                She already proved it.
               </p>
             </div>
 
