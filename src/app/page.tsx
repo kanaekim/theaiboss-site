@@ -69,9 +69,11 @@ export default function HomePage() {
                 Mine Runs a $110M Company.
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-gray-300 leading-relaxed">
-                Most CEOs are still debating AI. Kathy Slowinski already used it to
-                eliminate 96% of her codebase, automate 80% of support, and
-                quadruple revenue per employee.
+               Most CEOs have spent the last three years debating whether AI is real, forming committees, hiring consultants, 
+                and running pilots that never ship. Kathy Slowinski spent those same three years actually doing it. 
+                She increased revenue per head by 4x, moved margins 15 points from 60% to 75%, and built an operating model 
+                that runs a $100M+ SaaS portfolio with a fraction of the headcount her competitors need. 
+                They are still talking about what is possible. She already proved it.
               </p>
             </div>
 
