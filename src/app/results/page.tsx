@@ -16,9 +16,9 @@ const metrics = [
     detail: "Same people, four times the output.",
   },
   {
-    value: "96%",
-    label: "Codebase reduction",
-    detail: "3 million lines compressed to 125,000.",
+    value: "+5 pts",
+    label: "CNet margin expansion",
+    detail: "from 60% to 75%",
   },
   {
     value: "6x",
