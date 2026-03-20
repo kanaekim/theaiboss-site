@@ -16,8 +16,8 @@ const metrics = [
     detail: "Same people, four times the output.",
   },
   {
-    value: "+5 pts",
-    label: "CNet margin expansion",
+    value: "+15 pts",
+    label: "Net margin expansion",
     detail: "from 60% to 75%",
   },
   {
