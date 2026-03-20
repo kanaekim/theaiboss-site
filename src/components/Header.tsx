@@ -112,7 +112,6 @@ export function Header() {
             <Link href="/speaking" className="text-sm font-medium hover:text-[var(--color-muted)] transition-colors">
               Speaking
             </Link>
-          </div>
           <Link href="/resources" className="block text-sm font-medium py-2" onClick={() => setMobileOpen(false)}>
                 Resources
               </Link>
