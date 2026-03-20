@@ -126,7 +126,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Testimonial Placeholder ── */}
-    <div className="max-w-2xl mx-auto">
+<div className="max-w-2xl mx-auto py-[10px]">
             <div className="bg-white border border-[var(--color-border)] rounded-2xl p-8 sm:p-10">
               <div className="flex items-center gap-4 mb-6">
                 <img
@@ -201,7 +201,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Testimonial Placeholder ── */}
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-2xl mx-auto py-[10px]">
             <div className="bg-white border border-[var(--color-border)] rounded-2xl p-8 sm:p-10">
               <div className="flex items-center gap-4 mb-6">
                 <img
