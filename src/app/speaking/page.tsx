@@ -112,23 +112,21 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      {/* ── Video Placeholder ── */}
-      <section className="py-20 px-6 bg-[var(--color-surface)]">
-        <div className="max-w-3xl mx-auto">
-          <div className="aspect-video bg-gray-200 rounded-xl flex flex-col items-center justify-center border border-[var(--color-border)]">
-            <svg
-              className="w-16 h-16 text-[var(--color-muted)] mb-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M8 5v14l11-7z" />
-            </svg>
-            <p className="text-[var(--color-muted)] font-medium">
-              Keynote Highlight Reel Coming Soon
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* ── Video ── */}
+<section className="py-20 px-6 bg-[var(--color-surface)]">
+  <div className="max-w-3xl mx-auto">
+    <div className="aspect-video rounded-xl overflow-hidden border border-[var(--color-border)]">
+      <iframe
+        className="w-full h-full"
+        src="https://www.youtube.com/embed/v_vZ7FnPL5Y"
+        title="Kathy Slowinski Keynote"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    </div>
+  </div>
+</section>
 
       {/* ── Speaking Formats ── */}
       <section className="py-20 px-6">
