@@ -2,11 +2,33 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { SectionCTA } from "@/components/SectionCTA";
 import { TestimonialPlaceholder } from "@/components/TestimonialPlaceholder";
+import { JsonLd } from "@/components/JsonLd";
+import { Breadcrumb } from "@/components/Breadcrumb";
+
+const SERVICE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "The AI Boss - AI Keynote Speaking",
+  provider: { "@type": "Person", name: "Kathy Slowinski" },
+  description:
+    "AI keynote speaking and executive presentations by Kathy Slowinski, a CEO who built a $110M company with ~40 people using AI. Available for keynotes, fireside chats, panels, and half-day corporate events.",
+  areaServed: "Worldwide",
+};
 
 export const metadata: Metadata = {
-  title: "AI Keynote Speaker | Kathy Slowinski | The AI Boss",
+  title: {
+    absolute:
+      "AI Keynote Speaker for Conferences & Corporate Events — Kathy Slowinski | The AI Boss",
+  },
   description:
-    "Book an AI keynote speaker with real results. Kathy Slowinski is a CEO who built a $110M company with ~40 people using AI. Her frameworks have been used by hundreds of leaders.",
+    "Book Kathy Slowinski as your next AI keynote speaker. Real results from a real CEO — not theory. Topics include AI strategy, SaaS transformation, and leadership.",
+  alternates: {
+    canonical: "/speaking",
+  },
+  openGraph: {
+    url: "/speaking",
+    title: "AI Keynote Speaker — Kathy Slowinski | The AI Boss",
+  },
 };
 
 const speakingFormats = [
@@ -88,9 +110,18 @@ const faqItems = [
 
 export default function SpeakingPage() {
   return (
-    <main className="bg-white text-[var(--color-foreground)]">
+    <>
+      <JsonLd data={SERVICE_SCHEMA} />
+      <main className="bg-white text-[var(--color-foreground)]">
+      {/* ── Breadcrumb ── */}
+      <div className="pt-20 px-6 pb-0">
+        <div className="max-w-3xl mx-auto">
+          <Breadcrumb items={[{ name: "Speaking", href: "/speaking" }]} variant="light" />
+        </div>
+      </div>
+
       {/* ── Hero ── */}
-      <section className="pt-24 pb-20 px-6">
+      <section className="pt-4 pb-20 px-6">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-8">
             An AI Keynote Speaker Who Has Actually Done It. Not Just Talked
@@ -258,5 +289,6 @@ export default function SpeakingPage() {
         secondaryHref="/resources"
       />
     </main>
+    </>
   );
 }

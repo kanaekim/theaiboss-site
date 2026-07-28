@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionCTA } from "@/components/SectionCTA";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "The AI Boss Framework: How to 4x Revenue Without 4x Headcount",
+  title: {
+    absolute:
+      "The AI Transformation Playbook for CEOs — Proven Frameworks | The AI Boss",
+  },
   description:
-    "The proven 3-part framework used to transform a 40-person company from zero AI to 80% AI-assisted operations. Includes the Slowinski Pyramid, Weds.ai Method, and a full 12-month roadmap.",
+    "Battle-tested AI adoption frameworks from a CEO who did it: the Slowinski Pyramid, Weds.ai Method, and Leadership-First Adoption. Download the playbook.",
+  alternates: {
+    canonical: "/playbook",
+  },
+  openGraph: {
+    url: "/playbook",
+  },
 };
 
 const objections = [
@@ -32,7 +42,7 @@ const roadmap = [
     timeline: "Days 1-90",
     title: "Foundation",
     items: [
-      "Launch Weds.ai with your first team",
+      "Launch the Weds.ai Method with your first team",
       "CEO commits to daily AI usage",
       "Map the Slowinski Pyramid for your organization",
       "Focus exclusively on Tier 1 (repetitive tasks)",
@@ -68,6 +78,7 @@ export default function PlaybookPage() {
       {/* Hero */}
       <section className="bg-[var(--color-foreground)] text-white pt-24">
         <div className="max-w-5xl mx-auto px-4 py-20 sm:py-28">
+          <Breadcrumb items={[{ name: "The Playbook", href: "/playbook" }]} />
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight max-w-4xl">
             Most Companies Adopt AI Bottom-Up.
             <br />
@@ -110,8 +121,16 @@ export default function PlaybookPage() {
               Three things made it happen:
             </p>
             <ol className="list-decimal list-inside text-[var(--color-muted)] space-y-1">
-              <li>The Slowinski Pyramid</li>
-              <li>The Weds.ai Method</li>
+              <li>
+                <Link href="/frameworks/slowinski-pyramid" className="text-[var(--color-cta)] hover:underline">
+                  The Slowinski Pyramid
+                </Link>
+              </li>
+              <li>
+                <Link href="/frameworks/wedsai-method" className="text-[var(--color-cta)] hover:underline">
+                  The Weds.ai Method
+                </Link>
+              </li>
               <li>Leadership-First Adoption</li>
             </ol>
           </div>
@@ -122,7 +141,9 @@ export default function PlaybookPage() {
       <section className="py-20 px-4 bg-[var(--color-surface)]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-            The Slowinski Pyramid
+            <Link href="/frameworks/slowinski-pyramid" className="hover:text-[var(--color-cta)] transition-colors">
+              The Slowinski Pyramid
+            </Link>
           </h2>
           <p className="text-center text-[var(--color-muted)] mb-16 max-w-2xl mx-auto text-lg">
             How to Decide Where AI Goes First
@@ -185,7 +206,9 @@ export default function PlaybookPage() {
       <section className="py-20 px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-            The Weds.ai Method
+            <Link href="/frameworks/wedsai-method" className="hover:text-[var(--color-cta)] transition-colors">
+              The Weds.ai Method
+            </Link>
           </h2>
           <p className="text-center text-[var(--color-muted)] mb-4 max-w-2xl mx-auto text-lg">
             The Weekly Engine That Makes AI Adoption Stick

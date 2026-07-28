@@ -2,11 +2,28 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { SectionCTA } from "@/components/SectionCTA";
 import { TestimonialPlaceholder } from "@/components/TestimonialPlaceholder";
+import { JsonLd } from "@/components/JsonLd";
+
+const SERVICE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "The AI Boss - AI Workshops for Executives",
+  provider: { "@type": "Person", name: "Kathy Slowinski" },
+  description:
+    "Hands-on AI workshops for executive teams and leadership groups. Formats include a full-day AI Leadership Intensive, half-day Weds.ai Sprint, and 2-hour Board + C-Suite Alignment session.",
+  areaServed: "Worldwide",
+};
 
 export const metadata: Metadata = {
   title: "AI Workshop for Executives & Leadership Teams | The AI Boss",
   description:
     "Hands-on AI workshops for executive teams. Walk in with questions, walk out with a real AI plan by 5 PM. Led by a CEO who 4x'd revenue per employee using AI.",
+  alternates: {
+    canonical: "/workshops",
+  },
+  openGraph: {
+    url: "/workshops",
+  },
 };
 
 const workshopFormats = [
@@ -77,7 +94,9 @@ const faqItems = [
 
 export default function WorkshopsPage() {
   return (
-    <main className="bg-white text-[var(--color-foreground)]">
+    <>
+      <JsonLd data={SERVICE_SCHEMA} />
+      <main className="bg-white text-[var(--color-foreground)]">
       {/* ── Hero ── */}
       <section className="pt-24 pb-20 px-6">
         <div className="max-w-3xl mx-auto">
@@ -223,5 +242,6 @@ export default function WorkshopsPage() {
         primaryHref="/contact"
       />
     </main>
+    </>
   );
 }

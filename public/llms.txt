@@ -1,0 +1,26 @@
+# The AI Boss
+> AI-first leadership advisory from Kathy Slowinski, a sitting CEO who runs a $110M SaaS company with ~40 people using AI-native operations.
+
+## Who is Kathy Slowinski?
+Kathy Slowinski is the CEO of Trilogy, a $110M revenue SaaS portfolio company. She increased revenue per employee by 4x, moved gross margins from 60% to 75%, automated 80% of customer support with AI, and reduced a 3-million-line codebase to 125,000 lines using AI-assisted rewriting. She is a YPO AI Champion and AI keynote speaker.
+
+## What does The AI Boss offer?
+- CEO Briefings: One-on-one sessions for executives ready to implement AI
+- Advisory: Ongoing AI transformation guidance for leadership teams
+- Board Presentations: AI strategy presentations for corporate boards
+- Workshops: Hands-on AI implementation workshops for teams
+- Speaking: AI keynote presentations at conferences and corporate events
+
+## Key Frameworks
+- The Slowinski Pyramid: Prioritization model for where AI creates value first
+- The Weds.ai Method: Weekly mandatory AI hackathons for all employees
+- Leadership-First Adoption: CEO uses AI daily before asking the organization to
+- Second Brains: AI assistants trained on institutional knowledge
+
+## Links
+- Homepage: https://theaiboss.ai
+- Playbook: https://theaiboss.ai/playbook
+- Results: https://theaiboss.ai/results
+- Speaking: https://theaiboss.ai/speaking
+- Blog: https://theaiboss.ai/blog
+- Contact: https://theaiboss.ai/contact

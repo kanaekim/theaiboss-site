@@ -5,6 +5,12 @@ export const metadata: Metadata = {
   title: "AI Resources for CEOs & Executive Teams",
   description:
     "Free AI frameworks, assessments, and tools built from real operational experience. The same resources that drove 4x revenue per headcount at Trilogy.",
+  alternates: {
+    canonical: "/resources",
+  },
+  openGraph: {
+    url: "/resources",
+  },
 };
 
 const RESOURCES = [

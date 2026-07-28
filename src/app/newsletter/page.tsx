@@ -4,6 +4,12 @@ export const metadata: Metadata = {
   title: "The AI Boss Newsletter | AI Strategy for CEOs",
   description:
     "AI insight that is worth your CEO attention. No hype. No tutorials. Just strategy. Subscribe to The AI Leadership Briefing.",
+  alternates: {
+    canonical: "/newsletter",
+  },
+  openGraph: {
+    url: "/newsletter",
+  },
 };
 
 export default function NewsletterPage() {

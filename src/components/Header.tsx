@@ -26,9 +26,28 @@ const services = [
   },
 ];
 
+const frameworks = [
+  {
+    label: "The Slowinski Pyramid",
+    href: "/frameworks/slowinski-pyramid",
+    desc: "Where AI creates value first — and where it wastes money",
+  },
+  {
+    label: "Weds.ai Method",
+    href: "/frameworks/wedsai-method",
+    desc: "Weekly AI hackathons that make adoption stick",
+  },
+  {
+    label: "Second Brains",
+    href: "/frameworks/second-brains",
+    desc: "AI assistants trained on your institutional knowledge",
+  },
+];
+
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [frameworksOpen, setFrameworksOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -48,24 +67,59 @@ export function Header() {
         {/* Main nav */}
         <nav className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center">
-  <img
-    src="/logo.svg"
-    alt="The AI Boss"
-    className="h-10 w-auto"
-  />
-</Link>
+            <img src="/logo.svg" alt="The AI Boss" className="h-10 w-auto" />
+          </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             <Link href="/about" className="text-sm font-medium hover:text-[var(--color-muted)] transition-colors">
               About
             </Link>
             <Link href="/playbook" className="text-sm font-medium hover:text-[var(--color-muted)] transition-colors">
-              The Playbook
+              Playbook
             </Link>
             <Link href="/results" className="text-sm font-medium hover:text-[var(--color-muted)] transition-colors">
               Results
             </Link>
+
+            {/* Frameworks dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setFrameworksOpen(true)}
+              onMouseLeave={() => setFrameworksOpen(false)}
+            >
+              <button className="text-sm font-medium hover:text-[var(--color-muted)] transition-colors flex items-center gap-1">
+                Frameworks
+                <svg className={`w-3 h-3 transition-transform ${frameworksOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {frameworksOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] bg-white rounded-lg shadow-xl border border-[var(--color-border)] p-6">
+                  <div className="space-y-2">
+                    {frameworks.map((f) => (
+                      <Link
+                        key={f.href}
+                        href={f.href}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[var(--color-surface)] transition-colors"
+                      >
+                        <div className="text-[var(--color-cta)] font-bold mt-0.5 shrink-0">/</div>
+                        <div>
+                          <div className="font-medium text-sm">{f.label}</div>
+                          <div className="text-xs text-[var(--color-muted)] mt-0.5">{f.desc}</div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-[var(--color-border)]">
+                    <Link href="/frameworks" className="text-sm text-[var(--color-cta)] font-medium hover:underline">
+                      View all frameworks →
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Services dropdown */}
             <div
@@ -95,10 +149,7 @@ export function Header() {
                     ))}
                   </div>
                   <div className="mt-4 pt-4 border-t border-[var(--color-border)] text-center">
-                    <Link
-                      href="/contact"
-                      className="text-sm text-[var(--color-cta)] font-medium hover:underline"
-                    >
+                    <Link href="/contact" className="text-sm text-[var(--color-cta)] font-medium hover:underline">
                       Not sure which is right? Book a CEO Briefing →
                     </Link>
                   </div>
@@ -109,13 +160,10 @@ export function Header() {
             <Link href="/blog" className="text-sm font-medium hover:text-[var(--color-muted)] transition-colors">
               Blog
             </Link>
-            <Link href="/speaking" className="text-sm font-medium hover:text-[var(--color-muted)] transition-colors">
-              Speaking
+            <Link href="/resources" className="text-sm font-medium hover:text-[var(--color-muted)] transition-colors">
+              Resources
             </Link>
-         <Link href="/resources" className="text-sm font-medium hover:text-[var(--color-muted)] transition-colors">
-    Resources
-</Link>
-                      </div> 
+          </div>
 
           <div className="hidden lg:block">
             <Link
@@ -151,7 +199,7 @@ export function Header() {
           <div className="px-4 py-4 space-y-3">
             {[
               { label: "About", href: "/about" },
-              { label: "The Playbook", href: "/playbook" },
+              { label: "Playbook", href: "/playbook" },
               { label: "Results", href: "/results" },
             ].map((item) => (
               <Link
@@ -163,6 +211,20 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+
+            <div className="border-t border-[var(--color-border)] pt-3">
+              <div className="text-xs text-[var(--color-muted)] uppercase tracking-wider mb-2">Frameworks</div>
+              {frameworks.map((f) => (
+                <Link
+                  key={f.href}
+                  href={f.href}
+                  className="block text-sm py-2 pl-3"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {f.label}
+                </Link>
+              ))}
+            </div>
 
             <div className="border-t border-[var(--color-border)] pt-3">
               <div className="text-xs text-[var(--color-muted)] uppercase tracking-wider mb-2">Services</div>
@@ -181,9 +243,6 @@ export function Header() {
             <div className="border-t border-[var(--color-border)] pt-3 space-y-3">
               <Link href="/blog" className="block text-sm font-medium py-2" onClick={() => setMobileOpen(false)}>
                 Blog
-              </Link>
-              <Link href="/speaking" className="block text-sm font-medium py-2" onClick={() => setMobileOpen(false)}>
-                Speaking
               </Link>
               <Link href="/newsletter" className="block text-sm font-medium py-2" onClick={() => setMobileOpen(false)}>
                 Newsletter

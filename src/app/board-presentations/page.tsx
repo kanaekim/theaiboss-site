@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   title: "AI Board Presentation Strategy | The AI Boss",
   description:
     "Prepare a board-ready AI strategy with a CEO who has sat on both sides of the boardroom. Walk into your next board meeting with a real answer on AI.",
+  alternates: {
+    canonical: "/board-presentations",
+  },
+  openGraph: {
+    url: "/board-presentations",
+  },
 };
 
 const boardQuestions = [

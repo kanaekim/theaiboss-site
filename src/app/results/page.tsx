@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionCTA } from "@/components/SectionCTA";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title:
-    "AI Transformation Results: 4x Revenue Per Headcount | Trilogy Case Study",
+  title: {
+    absolute:
+      "AI Transformation Results — $110M Revenue, 40 People, 80% AI Support | The AI Boss",
+  },
   description:
-    "See the verified results of a CEO-led AI transformation: 4x revenue per headcount, 96% codebase reduction, 6x AWS savings, 80% AI-handled support. Real metrics from a real $110M company.",
+    "See the real results: 4x revenue per head, 80% AI-automated support, 96% codebase reduction. Proof that AI transformation works at scale.",
+  alternates: {
+    canonical: "/results",
+  },
+  openGraph: {
+    url: "/results",
+    title: "AI Transformation Results — 4x Revenue, 80% AI Support | The AI Boss",
+  },
 };
 
 const metrics = [
@@ -96,14 +106,14 @@ const beforeAfter = [
 ];
 
 const timeline = [
-  { date: "April 2023", event: "Weds.ai launches" },
-  { date: "Mid 2023", event: "Second Brains deployed company-wide" },
-  { date: "Late 2023", event: "Support hits 80% AI-handled" },
-  { date: "Early 2024", event: "Codebase compressed 96%" },
-  { date: "Mid 2024", event: "Executive ops go AI-native" },
-  { date: "Late 2024", event: "Flywheel effects compound" },
-  { date: "2025", event: "4x revenue per headcount achieved" },
-  { date: "2026", event: "Playbook opens to other CEOs" },
+  { date: "April 2023", event: "Weds.ai launches", href: "/frameworks/wedsai-method" },
+  { date: "Mid 2023", event: "Second Brains deployed company-wide", href: "/frameworks/second-brains" },
+  { date: "Late 2023", event: "Support hits 80% AI-handled", href: "/results" },
+  { date: "Early 2024", event: "Codebase compressed 96%", href: null },
+  { date: "Mid 2024", event: "Executive ops go AI-native", href: null },
+  { date: "Late 2024", event: "Flywheel effects compound", href: null },
+  { date: "2025", event: "4x revenue per headcount achieved", href: null },
+  { date: "2026", event: "Playbook opens to other CEOs", href: "/playbook" },
 ];
 
 const departments = [
@@ -146,6 +156,7 @@ export default function ResultsPage() {
       {/* Hero */}
       <section className="bg-[var(--color-foreground)] text-white pt-24">
         <div className="max-w-5xl mx-auto px-4 py-20 sm:py-28">
+          <Breadcrumb items={[{ name: "Results", href: "/results" }]} />
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight max-w-4xl">
             The Proof Is in the P&L.
           </h1>
@@ -237,7 +248,11 @@ export default function ResultsPage() {
             <h3 className="text-xl font-bold mb-4">What They Implemented</h3>
             <div className="space-y-4">
               <div className="border border-[var(--color-border)] rounded-lg p-5 bg-white">
-                <h4 className="font-bold mb-1">Weds.ai</h4>
+                <h4 className="font-bold mb-1">
+                  <Link href="/frameworks/wedsai-method" className="hover:text-[var(--color-cta)] transition-colors">
+                    Weds.ai Method
+                  </Link>
+                </h4>
                 <p className="text-sm text-[var(--color-muted)] leading-relaxed">
                   Weekly AI hackathons — 52 sessions per year — that turned
                   every employee into an AI practitioner. Ideas from these
@@ -245,7 +260,11 @@ export default function ResultsPage() {
                 </p>
               </div>
               <div className="border border-[var(--color-border)] rounded-lg p-5 bg-white">
-                <h4 className="font-bold mb-1">Second Brains</h4>
+                <h4 className="font-bold mb-1">
+                  <Link href="/frameworks/second-brains" className="hover:text-[var(--color-cta)] transition-colors">
+                    Second Brains
+                  </Link>
+                </h4>
                 <p className="text-sm text-[var(--color-muted)] leading-relaxed">
                   AI assistants trained on institutional knowledge, replacing
                   tribal expertise that lived in people&apos;s heads. When
@@ -393,14 +412,21 @@ export default function ResultsPage() {
 <div className="absolute left-6 top-0 bottom-0 w-px bg-[var(--color-border)]" />
 
 {timeline.map((item, i) => (
-  <div key={i} className="relative flex items-start gap-6 pl-16">
-    {/* Dot — center it on the line (left-6 = 1.5rem, minus half of w-4 = 0.5rem → left-[1.25rem]) */}
+  <div key={i} className="relative flex items-start gap-6 pl-16 pb-8">
     <div className="absolute left-[1.125rem] top-1 w-3.5 h-3.5 rounded-full bg-[var(--color-foreground)] border-4 border-[var(--color-surface)]" />
     <div>
       <div className="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)] mb-1">
         {item.date}
       </div>
-      <div className="text-base font-bold">{item.event}</div>
+      <div className="text-base font-bold">
+        {item.href ? (
+          <Link href={item.href} className="hover:text-[var(--color-cta)] transition-colors">
+            {item.event}
+          </Link>
+        ) : (
+          item.event
+        )}
+      </div>
     </div>
   </div>
 ))}

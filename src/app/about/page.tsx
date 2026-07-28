@@ -1,18 +1,58 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { SectionCTA } from "@/components/SectionCTA";
 import { TestimonialPlaceholder } from "@/components/TestimonialPlaceholder";
+import { JsonLd } from "@/components/JsonLd";
+import { Breadcrumb } from "@/components/Breadcrumb";
+
+const PERSON_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Kathy Slowinski",
+  jobTitle: "CEO",
+  worksFor: { "@type": "Organization", name: "Trilogy" },
+  description:
+    "CEO of Trilogy ($110M revenue), AI keynote speaker, and executive advisor who increased revenue per head by 4x and automated 80% of customer support with AI.",
+  url: "https://theaiboss.ai",
+  sameAs: ["https://linkedin.com/in/kathyslowinski"],
+  knowsAbout: [
+    "Artificial Intelligence",
+    "AI Strategy",
+    "SaaS",
+    "AI Transformation",
+    "Executive Leadership",
+  ],
+};
 
 export const metadata: Metadata = {
-  title: "About Kathy Slowinski | CEO, AI Keynote Speaker & YPO Member",
+  title: {
+    absolute:
+      "About Kathy Slowinski — CEO, AI Leader, Keynote Speaker | The AI Boss",
+  },
   description:
-    "Kathy Slowinski is the CEO behind The AI Boss, a leader who has driven AI transformation in real companies, and a trusted AI advisor to executive teams worldwide.",
+    "Meet Kathy Slowinski: CEO of Trilogy ($110M), YPO AI Champion, and the executive who proved AI transformation works. Learn her story.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    url: "/about",
+  },
 };
 
 export default function AboutPage() {
   return (
-    <main className="bg-white text-[var(--color-foreground)]">
+    <>
+      <JsonLd data={PERSON_SCHEMA} />
+      <main className="bg-white text-[var(--color-foreground)]">
+      {/* ── Breadcrumb ── */}
+      <div className="pt-20 px-6 pb-0">
+        <div className="max-w-5xl mx-auto">
+          <Breadcrumb items={[{ name: "About", href: "/about" }]} variant="light" />
+        </div>
+      </div>
+
       {/* ── Hero ── */}
-      <section className="pt-24 pb-20 px-6">
+      <section className="pt-4 pb-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* Left — Text (2/3) */}
@@ -28,9 +68,14 @@ export default function AboutPage() {
 
             {/* Right — Kathy's Photo (1/3) */}
             <div className="lg:w-1/3">
-              <img
+              <Image
                 src="/kathy.png"
-                alt="Kathy Slowinski"
+                alt="Kathy Slowinski, CEO of Trilogy and AI transformation leader"
+                width={500}
+                height={500}
+                priority
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                className="w-full"
               />
             </div>
           </div>
@@ -129,9 +174,11 @@ export default function AboutPage() {
 <div className="max-w-2xl mx-auto py-[10px]">
             <div className="bg-white border border-[var(--color-border)] rounded-2xl p-8 sm:p-10">
               <div className="flex items-center gap-4 mb-6">
-                <img
+                <Image
                   src="/Sarah Lehman.jpeg"
-                  alt="Sarah Lehman"
+                  alt="Sarah Lehman, CEO of Zartico"
+                  width={56}
+                  height={56}
                   className="w-14 h-14 rounded-full object-cover"
                 />
                 <div>
@@ -204,9 +251,11 @@ export default function AboutPage() {
       <div className="max-w-2xl mx-auto py-[10px]">
             <div className="bg-white border border-[var(--color-border)] rounded-2xl p-8 sm:p-10">
               <div className="flex items-center gap-4 mb-6">
-                <img
+                <Image
                   src="/job_tucker.png"
-                  alt="Job Tucker"
+                  alt="Job Tucker, Director at Third Comma"
+                  width={56}
+                  height={56}
                   className="w-14 h-14 rounded-full object-cover"
                 />
                 <div>
@@ -273,6 +322,7 @@ export default function AboutPage() {
         secondaryHref="/playbook"
       />
     </main>
+    </>
   );
 }
 

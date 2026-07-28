@@ -1,71 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BeehiivForm } from "@/components/BeehiivForm";
+import { getPosts, formatDate } from "@/lib/blog";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Blog | AI Strategy for CEOs",
+  title: {
+    absolute: "AI Strategy Blog for CEOs & Executives | The AI Boss",
+  },
   description:
-    "AI strategy insights from a sitting CEO. Weekly articles on AI adoption, leadership, and transformation for executives and boards.",
+    "Weekly AI strategy insights from a sitting CEO. No hype, no tutorials — just what leaders need to know about AI adoption and transformation.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    url: "/blog",
+  },
 };
-
-interface BlogPost {
-  title: string;
-  link: string;
-  pubDate: string;
-  thumbnail: string;
-}
-
-async function getPosts(): Promise<BlogPost[]> {
-  try {
-    const res = await fetch(
-      "https://rss.beehiiv.com/feeds/DAoX2ngnkW.xml",
-      { next: { revalidate: 3600 } }
-    );
-    const xml = await res.text();
-
-    const items: BlogPost[] = [];
-    const itemRegex = /<item>([\s\S]*?)<\/item>/g;
-    let match;
-
-    while ((match = itemRegex.exec(xml)) !== null) {
-      const item = match[1];
-
-      const title =
-        item.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/)?.[1] ??
-        item.match(/<title>(.*?)<\/title>/)?.[1] ??
-        "";
-
-      const link = item.match(/<link>(.*?)<\/link>/)?.[1] ?? "";
-
-      const pubDate = item.match(/<pubDate>(.*?)<\/pubDate>/)?.[1] ?? "";
-
-      const thumbnail =
-        item.match(/<enclosure[^>]+url="([^"]+)"/)?.[1] ??
-        item.match(/<media:content[^>]+url="([^"]+)"/)?.[1] ??
-        item.match(/<description>[\s\S]*?<img[^>]+src="([^"]+)"/)?.[1] ??
-        item.match(/<content:encoded>[\s\S]*?<img[^>]+src="([^"]+)"/)?.[1] ??
-        "";
-
-      items.push({ title, link, pubDate, thumbnail });
-    }
-
-    return items;
-  } catch {
-    return [];
-  }
-}
-
-function formatDate(dateStr: string): string {
-  try {
-    return new Date(dateStr).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  } catch {
-    return dateStr;
-  }
-}
 
 export default async function BlogPage() {
   const posts = await getPosts();
@@ -75,6 +26,9 @@ export default async function BlogPage() {
       {/* Hero */}
       <section className="bg-[var(--color-foreground)] text-white pt-24">
         <div className="max-w-4xl mx-auto px-4 py-20 sm:py-28 text-center">
+          <div className="flex justify-center mb-6">
+            <Breadcrumb items={[{ name: "Blog", href: "/blog" }]} />
+          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
             The AI Boss Blog
           </h1>
@@ -83,7 +37,7 @@ export default async function BlogPage() {
             leaders need to know.
           </p>
           <p className="mt-3 text-sm text-gray-400">
-            Get weekly insights delivered to your inbox.
+            Join CEOs getting weekly AI insights delivered to their inbox.
           </p>
           <div className="mt-8">
             <BeehiivForm />
@@ -97,12 +51,22 @@ export default async function BlogPage() {
           {posts.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (
-                <a key={post.link} href={post.link} target="_blank" rel="noopener noreferrer" className="bg-white rounded-xl border border-[var(--color-border)] overflow-hidden hover:shadow-lg transition-shadow">
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="bg-white rounded-xl border border-[var(--color-border)] overflow-hidden hover:shadow-lg transition-shadow"
+                >
                   {post.thumbnail ? (
+                    // Beehiiv images are already Cloudflare-optimized (format=auto)
+                    // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={post.thumbnail}
                       alt={post.title}
                       className="w-full h-48 object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      width={400}
+                      height={192}
                     />
                   ) : (
                     <div className="w-full h-48 bg-[var(--color-foreground)] flex items-center justify-center">
@@ -118,8 +82,13 @@ export default async function BlogPage() {
                     <h2 className="text-lg font-bold leading-snug">
                       {post.title}
                     </h2>
+                    {post.description && (
+                      <p className="mt-2 text-sm text-[var(--color-muted)] leading-relaxed line-clamp-2">
+                        {post.description}
+                      </p>
+                    )}
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           ) : (

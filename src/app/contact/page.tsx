@@ -53,6 +53,11 @@ export default function ContactPage() {
     <>
       <title>{PAGE_TITLE}</title>
       <meta name="description" content={PAGE_DESCRIPTION} />
+      <link rel="canonical" href="https://theaiboss.ai/contact" />
+      <meta property="og:url" content="https://theaiboss.ai/contact" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={PAGE_TITLE} />
+      <meta property="og:description" content={PAGE_DESCRIPTION} />
       <main className="bg-white text-[var(--color-foreground)]">
         {/* -- Hero -- */}
         <section className="pt-24 pb-20 px-6">

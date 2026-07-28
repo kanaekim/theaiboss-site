@@ -2,11 +2,31 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { SectionCTA } from "@/components/SectionCTA";
 import { TestimonialPlaceholder } from "@/components/TestimonialPlaceholder";
+import { JsonLd } from "@/components/JsonLd";
+
+const SERVICE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "The AI Boss - CEO AI Advisory",
+  provider: { "@type": "Person", name: "Kathy Slowinski" },
+  description:
+    "Strategic AI advisory for CEOs of $50M–$500M companies. Includes a 90-day AI roadmap, Slowinski Pyramid prioritization, and ongoing CEO-level strategy guidance from a sitting CEO who 4x'd revenue per headcount using AI.",
+  areaServed: "Worldwide",
+};
 
 export const metadata: Metadata = {
-  title: "AI Strategy Advisor for CEOs | The AI Boss",
+  title: {
+    absolute:
+      "AI Advisory for CEOs — Executive AI Strategy & Implementation | The AI Boss",
+  },
   description:
-    "Work directly with a CEO AI consultant who 4x'd revenue per employee using AI. Kathy Slowinski advises CEOs of $50M-$500M companies on AI strategy that actually works.",
+    "Ongoing AI transformation advisory from a CEO who runs a $110M company on AI. Not consultants — proven frameworks you implement with guidance.",
+  alternates: {
+    canonical: "/advisory",
+  },
+  openGraph: {
+    url: "/advisory",
+  },
 };
 
 const phases = [
@@ -117,7 +137,9 @@ const faqItems = [
 
 export default function AdvisoryPage() {
   return (
-    <main className="bg-white text-[var(--color-foreground)]">
+    <>
+      <JsonLd data={SERVICE_SCHEMA} />
+      <main className="bg-white text-[var(--color-foreground)]">
       {/* ── Hero ── */}
       <section className="pt-24 pb-20 px-6">
         <div className="max-w-3xl mx-auto">
@@ -320,5 +342,6 @@ export default function AdvisoryPage() {
         primaryHref="/contact"
       />
     </main>
+    </>
   );
 }
