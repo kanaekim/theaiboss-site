@@ -122,11 +122,37 @@ export async function POST(req: NextRequest) {
       // Person was still created, so return success
     }
 
-    // --- 4. Fire Attio webhook for Google Chat / Gmail notification ---
-    const webhookUrl = process.env.ATTIO_WEBHOOK_URL;
-    if (webhookUrl) {
+    // --- 4. Send Google Chat notification ---
+    const chatWebhookUrl = process.env.GOOGLE_CHAT_WEBHOOK_URL;
+    if (chatWebhookUrl) {
       try {
-        await fetch(webhookUrl, {
+        const chatMessage = [
+          "📬 *New Website Inquiry*",
+          "",
+          `👤 *Name:* ${name.trim()}`,
+          `📧 *Email:* ${email}`,
+          `🏢 *Company:* ${company}`,
+          `💼 *Role:* ${role || "N/A"}`,
+          `📋 *Inquiry Type:* ${inquiryLabel}`,
+          `💰 *Annual Revenue:* ${extra.revenue || "N/A"}`,
+          `🎯 *Interest Driver:* ${extra.driver || "N/A"}`,
+        ].join("\n");
+
+        await fetch(chatWebhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: chatMessage }),
+        });
+      } catch (chatErr) {
+        console.error("Google Chat webhook error:", chatErr);
+      }
+    }
+
+    // --- 5. Send Gmail notification via Apps Script ---
+    const gmailWebhookUrl = process.env.GMAIL_WEBHOOK_URL;
+    if (gmailWebhookUrl) {
+      try {
+        await fetch(gmailWebhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -139,9 +165,8 @@ export async function POST(req: NextRequest) {
             interest_driver: extra.driver || "N/A",
           }),
         });
-      } catch (webhookErr) {
-        // Don't fail the form submission if the webhook fails
-        console.error("Attio webhook error:", webhookErr);
+      } catch (gmailErr) {
+        console.error("Gmail webhook error:", gmailErr);
       }
     }
 
