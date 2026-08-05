@@ -122,6 +122,29 @@ export async function POST(req: NextRequest) {
       // Person was still created, so return success
     }
 
+    // --- 4. Fire Attio webhook for Google Chat / Gmail notification ---
+    const webhookUrl = process.env.ATTIO_WEBHOOK_URL;
+    if (webhookUrl) {
+      try {
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: name.trim(),
+            email,
+            company,
+            role: role || "N/A",
+            inquiry_type: inquiryLabel,
+            annual_revenue: extra.revenue || "N/A",
+            interest_driver: extra.driver || "N/A",
+          }),
+        });
+      } catch (webhookErr) {
+        // Don't fail the form submission if the webhook fails
+        console.error("Attio webhook error:", webhookErr);
+      }
+    }
+
     return NextResponse.json({ success: true, personId });
   } catch (error) {
     console.error("Contact route error:", error);
