@@ -175,26 +175,20 @@ export default function AboutPage() {
             <div className="bg-white border border-[var(--color-border)] rounded-2xl p-8 sm:p-10">
               <div className="flex items-center gap-4 mb-6">
                 <Image
-                  src="/Sarah Lehman.jpeg"
-                  alt="Sarah Lehman, CEO of Zartico"
+                  src="/eric_desimone.jpeg"
+                  alt="Eric DeSimone, CEO at DeSimone Builders"
                   width={56}
                   height={56}
                   className="w-14 h-14 rounded-full object-cover"
                 />
                 <div>
-                  <div className="font-bold">Sarah Lehman</div>
-                  <div className="text-sm text-[var(--color-muted)]">CEO @ Zartico</div>
+                  <div className="font-bold">Eric DeSimone</div>
+                  <div className="text-sm text-[var(--color-muted)]">Founder & CEO @ DeSimone Builders</div>
                 </div>
               </div>
-              <div className="text-[var(--color-muted)] leading-relaxed italic space-y-4">
-                <p>&ldquo;To my fellow CEOs: If AI is still something your team is &lsquo;exploring,&rsquo; you are already behind.</p>
-                <p>That is why working with Kathy Slowinski has been such a game changer for us at Zartico. Kathy does not approach AI as a feature or side experiment. She treats it as an operating model.</p>
-                <p>She has built, scaled, and stabilized complex companies using AI-first principles. She knows where it works, where it breaks, and how to move organizations beyond endless pilots into real operational change.</p>
-                <p>When she joined our annual all-company meeting, she challenged the entire organization to stop studying AI and start using it. That challenge led directly to FriA.I.Days at Zartico &mdash; inspired by her Wed.AI Labs &mdash; where we now run demos, experiments, and hackathons to rethink how work actually gets done.</p>
-                <p>That is exactly why she is The AI Boss.</p>
-                <p>Her message is simple: the CEO has to lead. If leaders are not actively using AI tools to rethink how work gets done across product, marketing, support, and operations, the company will never move fast enough.</p>
-                <p>If you are a CEO wondering where to start, the answer is simple. Start using the tools yourself. Your organization will follow.&rdquo;</p>
-              </div>
+              <p className="text-[var(--color-muted)] leading-relaxed italic">
+                &ldquo;Kathy&rsquo;s session confirmed something we already believe. DeSimone Builders is in build mode, and we are building lean from day one with AI at the core of how we operate, not bolted on as an afterthought and not out of fear of anyone losing their job. Her Michael Jordan mentality, the belief that mastery comes from logging real reps with the tool, not just talking about it, is exactly the discipline we are instilling in our team. We are in a completely different business than Kathy is, but the redundant work sitting inside a general contractor and the redundant work sitting inside her company is the same animal. Contracts, submittals, budgets, insurance, email triage, the list runs long in both industries, and AI eliminates the waste in all of it. A few years ago the talk inside YPO was that the AI comet was coming and we needed to start preparing. Today that comet is not coming anymore, it is in route, and the businesses that choose to ignore it will not survive the next three to five years. Kathy is proof that the companies putting in the reps today are the ones that will own their industry tomorrow. Grateful for the time she gave our team.&rdquo;
+              </p>
             </div>
           </div>
 
@@ -252,20 +246,26 @@ export default function AboutPage() {
             <div className="bg-white border border-[var(--color-border)] rounded-2xl p-8 sm:p-10">
               <div className="flex items-center gap-4 mb-6">
                 <Image
-                  src="/eric_desimone.jpeg"
-                  alt="Eric DeSimone, CEO at DeSimone Builders"
+                  src="/Sarah Lehman.jpeg"
+                  alt="Sarah Lehman, CEO of Zartico"
                   width={56}
                   height={56}
                   className="w-14 h-14 rounded-full object-cover"
                 />
                 <div>
-                  <div className="font-bold">Eric DeSimone</div>
-                  <div className="text-sm text-[var(--color-muted)]">CEO @ DeSimone Builders</div>
+                  <div className="font-bold">Sarah Lehman</div>
+                  <div className="text-sm text-[var(--color-muted)]">CEO @ Zartico</div>
                 </div>
               </div>
-              <p className="text-[var(--color-muted)] leading-relaxed italic">
-                &ldquo;Kathy&rsquo;s session confirmed something we already believe. DeSimone Builders is in build mode, and we are building lean from day one with AI at the core of how we operate, not bolted on as an afterthought and not out of fear of anyone losing their job. Her Michael Jordan mentality, the belief that mastery comes from logging real reps with the tool, not just talking about it, is exactly the discipline we are instilling in our team. We are in a completely different business than Kathy is, but the redundant work sitting inside a general contractor and the redundant work sitting inside her company is the same animal. Contracts, submittals, budgets, insurance, email triage, the list runs long in both industries, and AI eliminates the waste in all of it. A few years ago the talk inside YPO was that the AI comet was coming and we needed to start preparing. Today that comet is not coming anymore, it is in route, and the businesses that choose to ignore it will not survive the next three to five years. Kathy is proof that the companies putting in the reps today are the ones that will own their industry tomorrow. Grateful for the time she gave our team.&rdquo;
-              </p>
+              <div className="text-[var(--color-muted)] leading-relaxed italic space-y-4">
+                <p>&ldquo;To my fellow CEOs: If AI is still something your team is &lsquo;exploring,&rsquo; you are already behind.</p>
+                <p>That is why working with Kathy Slowinski has been such a game changer for us at Zartico. Kathy does not approach AI as a feature or side experiment. She treats it as an operating model.</p>
+                <p>She has built, scaled, and stabilized complex companies using AI-first principles. She knows where it works, where it breaks, and how to move organizations beyond endless pilots into real operational change.</p>
+                <p>When she joined our annual all-company meeting, she challenged the entire organization to stop studying AI and start using it. That challenge led directly to FriA.I.Days at Zartico &mdash; inspired by her Wed.AI Labs &mdash; where we now run demos, experiments, and hackathons to rethink how work actually gets done.</p>
+                <p>That is exactly why she is The AI Boss.</p>
+                <p>Her message is simple: the CEO has to lead. If leaders are not actively using AI tools to rethink how work gets done across product, marketing, support, and operations, the company will never move fast enough.</p>
+                <p>If you are a CEO wondering where to start, the answer is simple. Start using the tools yourself. Your organization will follow.&rdquo;</p>
+              </div>
             </div>
           </div>
 
