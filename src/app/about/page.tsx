@@ -260,7 +260,7 @@ export default function AboutPage() {
                 />
                 <div>
                   <div className="font-bold">Eric DeSimone</div>
-                  <div className="text-sm text-[var(--color-muted)]">Founder & CEO @ DeSimone Builders</div>
+                  <div className="text-sm text-[var(--color-muted)]">CEO @ DeSimone Builders</div>
                 </div>
               </div>
               <p className="text-[var(--color-muted)] leading-relaxed italic">
