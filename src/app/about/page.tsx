@@ -252,19 +252,19 @@ export default function AboutPage() {
             <div className="bg-white border border-[var(--color-border)] rounded-2xl p-8 sm:p-10">
               <div className="flex items-center gap-4 mb-6">
                 <Image
-                  src="/job_tucker.png"
-                  alt="Job Tucker, Director at Third Comma"
+                  src="/eric_desimone.jpeg"
+                  alt="Eric DeSimone, CEO at DeSimone Builders"
                   width={56}
                   height={56}
                   className="w-14 h-14 rounded-full object-cover"
                 />
                 <div>
-                  <div className="font-bold">Job Tucker</div>
-                  <div className="text-sm text-[var(--color-muted)]">Director @ Third Comma</div>
+                  <div className="font-bold">Eric DeSimone</div>
+                  <div className="text-sm text-[var(--color-muted)]">Founder & CEO @ DeSimone Builders</div>
                 </div>
               </div>
               <p className="text-[var(--color-muted)] leading-relaxed italic">
-                &ldquo;Kathy has singlehandedly pushed AI to the forefront of our YPO chapter and made it accessible, practical, and incredibly valuable for our members. Her depth of knowledge and relentless curiosity make her a powerful guide for leaders trying to understand how AI can create real advantage in their businesses. I&rsquo;ve personally gained tremendous insight from her and consistently walk away from our conversations seeing the future more clearly.&rdquo;
+                &ldquo;Kathy&rsquo;s session confirmed something we already believe. DeSimone Builders is in build mode, and we are building lean from day one with AI at the core of how we operate, not bolted on as an afterthought and not out of fear of anyone losing their job. Her Michael Jordan mentality, the belief that mastery comes from logging real reps with the tool, not just talking about it, is exactly the discipline we are instilling in our team. We are in a completely different business than Kathy is, but the redundant work sitting inside a general contractor and the redundant work sitting inside her company is the same animal. Contracts, submittals, budgets, insurance, email triage, the list runs long in both industries, and AI eliminates the waste in all of it. A few years ago the talk inside YPO was that the AI comet was coming and we needed to start preparing. Today that comet is not coming anymore, it is in route, and the businesses that choose to ignore it will not survive the next three to five years. Kathy is proof that the companies putting in the reps today are the ones that will own their industry tomorrow. Grateful for the time she gave our team.&rdquo;
               </p>
             </div>
           </div>
